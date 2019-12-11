@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<script src="js/jquery-3.4.1.min.js"></script>
+		<title></title>
+	</head>
+	<body>
+		<button id="btn">点击请求数据</button>
+		<button id="btn1">点击请求数据</button>
+		<button id="btn2">点击请求数据</button>
+		<button id="btn3">点击请求数据</button>
+		<button id="btn4">点击请求数据</button>
+		<script>
+			// 查询  好用
+			$(function() {
+				$('#btn').click(function() {
+					console.log('按钮被点击')
+					$.ajax({
+						type: "GET",
+						url: "http://localhost:3000/api/list",
+						data: '',
+						dataType: "json",
+						success: function(data) {
+							console.log(data);
+						}
+					});
+				})
+			})
+			// 条件查询 好用
+			$(function() {
+				$('#btn1').click(function() {
+					console.log('按钮被点击')
+					$.ajax({
+						type: "GET",
+						url: "http://localhost:3000/api/body",
+						data: {
+							id: 1
+						},
+						dataType: "json",
+						success: function(data) {
+							console.log(data);
+						}
+					});
+				})
+			})
+			//增加  好用
+			$(function() {
+				$('#btn2').click(function() {
+					console.log('按钮被点击')
+					$.ajax({
+						type: "POST",
+						url: "http://localhost:3000/api/adduser",
+						data: {
+							userName: 4,
+							passWord: 6
+
+						},
+						dataType: "json",
+						success: function(data) {
+							console.log(data);
+						}
+					});
+				})
+			})
+			//修改 好用
+			$(function() {
+				$('#btn3').click(function() {
+					console.log('按钮被点击')
+					$.ajax({
+						type: "POST",
+						url: "http://localhost:3000/api/updateuser",
+						data: {
+							id: 1,
+							userName: 4,
+							passWord: 6
+
+						},
+						dataType: "json",
+						success: function(data) {
+							console.log(data);
+						}
+					});
+				})
+			})
+			//删除 好用
+			$(function() {
+				$('#btn4').click(function() {
+					console.log('按钮被点击')
+					$.ajax({
+						type: "GET",
+						url: "http://localhost:3000/api/delete",
+						data: {
+							id: 2
+						},
+						dataType: "json",
+						success: function(data) {
+							console.log(data);
+						}
+					});
+				})
+			})
+		</script>
+	</body>
+</html>
